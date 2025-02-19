@@ -25,3 +25,25 @@
 .section{
     padding: 60px 0;
 }
+.qty-btns{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 130px;
+    gap: 5px;
+    text-align: center;
+    align-items: center;
+}
+.qty-btns button{
+    background-color: transparent;
+    border: none;
+}
+.qty-btns button:not(:first-child){
+    background-color: #ddd;
+}
+.cart-items .cart-item{
+   
+    margin-bottom: 10px;
+}
+.hide{
+    display: none !important;
+}
