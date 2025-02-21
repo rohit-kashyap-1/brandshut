@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styles from './checkout.module.css'
+import productImage from '../images/product-1.jpg'
 
 export default function Checkout() {
     const [isAddressModalOpen, setIsAddressModalOpen] = useState(false)
@@ -9,6 +10,17 @@ export default function Checkout() {
             <div className='row'>
                 <div className='col-md-8'>
                     <form className='form'>
+                        <div className=' border p-3 mb-4'>
+                            <div className='row mb-3'>
+                                <div className='col-md-2'>
+                                    <img src={productImage} className='img-fluid' />
+                                </div>
+                                <div className='col-md-8'>
+                                    <h5>INOVERA (LABEL)Women's Vegan Leather Tri-fold Fashion Card Coin Holder Small Wallet (KK29)</h5>
+                                    <h4>Rs.314/-</h4>
+                                </div>
+                            </div>
+                        </div>
                         <div className='mb-4'>
                             <h4 className='mb-3'>Delivery</h4>
                             <button type='button' className='btn btn-primary mb-3' onClick={() => { setIsAddressModalOpen(true) }}>+ Add Address</button>
@@ -78,7 +90,21 @@ export default function Checkout() {
                     </form>
                 </div>
                 <div className='col-md-4'>
-                
+                    <table className='table table-bordered'>
+                        <tr>
+                            <th className='p-2'>Price</th>
+                            <td>Rs. 314</td>
+                        </tr>
+                        <tr>
+                            <th className='p-2'>Shipping</th>
+                            <td>Rs. 14</td>
+                        </tr>
+                        <tr>
+                            <th className='p-2'>Total</th>
+                            <td>Rs. 328</td>
+                        </tr>
+                    </table>
+                    <button className='btn btn-warning'>Place Order</button>
                 </div>
             </div>
             <div className={(isAddressModalOpen === true) ? styles.address_modal + ' modal ' : 'modal'} id="demo">

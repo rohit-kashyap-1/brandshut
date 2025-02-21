@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Header() {
     return (
@@ -41,12 +42,12 @@ export default function Header() {
 
 
                         <div className="d-flex align-items-center">
-                            <button data-mdb-ripple-init type="button" className="btn btn-link px-3 me-2">
+                            <Link to={'/login'} data-mdb-ripple-init type="button" className="btn btn-link px-3 me-2">
                                 Login
-                            </button>
-                            <button data-mdb-ripple-init type="button" className="btn btn-primary me-3">
+                            </Link>
+                            <Link to={'/register'} data-mdb-ripple-init type="button" className="btn btn-primary me-3">
                                 Sign up for free
-                            </button>
+                            </Link>
                             <a
                                 data-mdb-ripple-init
                                 className="btn btn-dark px-3"

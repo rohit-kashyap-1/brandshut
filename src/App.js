@@ -8,6 +8,10 @@ import Listing from './components/Listing';
 import Product from './components/Product';
 import Cart from './components/Cart';
 import Checkout from './components/Checkout';
+import OrderSuccess from './components/OrderSuccess';
+import Login from './components/Login';
+import Register from './components/Register';
+import Dashboard from './components/Dashboard';
 
 function App() {
   return (
@@ -19,6 +23,10 @@ function App() {
         <Route path='/final' element={<Product />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/checkout' element={<Checkout />} />
+        <Route path='/success' element={<OrderSuccess />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/dashboard' element={<Dashboard />} />
       </Routes>
       <Footer />
     </BrowserRouter>
