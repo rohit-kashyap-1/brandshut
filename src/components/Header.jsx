@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 export default function Header() {
+    const cart = useSelector((state)=>state.cart.value)
     return (
         <div>
 
@@ -48,12 +50,8 @@ export default function Header() {
                             <Link to={'/register'} data-mdb-ripple-init type="button" className="btn btn-primary me-3">
                                 Sign up for free
                             </Link>
-                            <a
-                                data-mdb-ripple-init
-                                className="btn btn-dark px-3"
-                                href="https://github.com/mdbootstrap/mdb-ui-kit"
-                                role="button"
-                            ><i className="fab fa-github"></i></a>
+                            
+                            <Link to={'/cart'}>Cart {cart.length}</Link>
                         </div>
                     </div>
 
