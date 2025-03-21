@@ -1,6 +1,24 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useState } from 'react'
 
 export default function Register() {
+    const [name,setName] =  useState('')
+    const [email,setEmail] =  useState('')
+    const [phone,setPhone] =  useState('')
+    const [password,setPassword] =  useState('')
+
+    const registerUser = ()=>{
+        //validation
+
+        axios.post('http://localhost:3000/customers',{id:Math.round(Math.random()*99999999999),name,email,phone,password}).then((response)=>{
+            if(response.status===201){
+                window.location='/dashboard'
+            }else{
+                alert(response.statusText)
+            }
+        })
+
+    }
     return (
         <div style={{ height: '90vh' }}>
             <div className='container py-5 justify-content-center d-flex h-100 align-items-center'>
@@ -19,57 +37,32 @@ export default function Register() {
                    
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-                            <form>
-                                <div class="text-center mb-3">
-                                    <p>Sign in with:</p>
-                                    <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </button>
-
-                                    <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                                        <i class="fab fa-google"></i>
-                                    </button>
-
-                                    <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                                        <i class="fab fa-twitter"></i>
-                                    </button>
-
-                                    <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                                        <i class="fab fa-github"></i>
-                                    </button>
+                            <form autoComplete='off'>
+                               
+                              
+                            <div data-mdb-input-init class="form-outline mb-4">
+                                    <input type="text" id="name" class="form-control"  onChange={(e)=>{setName(e.target.value)}} value={name}/>
+                                    <label class="form-label" for="name">Name</label>
                                 </div>
-
-                                <p class="text-center">or:</p>
-
                              
                                 <div data-mdb-input-init class="form-outline mb-4">
-                                    <input type="email" id="loginName" class="form-control" />
-                                    <label class="form-label" for="loginName">Email or username</label>
+                                    <input type="email" id="loginName" class="form-control"  onChange={(e)=>{setEmail(e.target.value)}} value={email}/>
+                                    <label class="form-label" for="loginName">Email </label>
                                 </div>
-
+                                <div data-mdb-input-init class="form-outline mb-4">
+                                    <input type="text" id="phone" class="form-control" onChange={(e)=>{setPhone(e.target.value)}} value={phone} />
+                                    <label class="form-label" for="phone">Phone</label>
+                                </div>
                               
                                 <div data-mdb-input-init class="form-outline mb-4">
-                                    <input type="password" id="loginPassword" class="form-control" />
+                                    <input type="password" id="loginPassword" class="form-control" onChange={(e)=>{setPassword(e.target.value)}} value={password} />
                                     <label class="form-label" for="loginPassword">Password</label>
                                 </div>
 
-                                <div class="row mb-4">
-                                    <div class="col-md-6 d-flex justify-content-center">
-                                        
-                                        <div class="form-check mb-3 mb-md-0">
-                                            <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
-                                            <label class="form-check-label" for="loginCheck"> Remember me </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6 d-flex justify-content-center">
-                                      
-                                        <a href="#!">Forgot password?</a>
-                                    </div>
-                                </div>
+                                
 
                                 
-                                <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">Sign in</button>
+                                <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4" onClick={registerUser}>Reigster</button>
 
                                 
                                 <div class="text-center">
